@@ -1,0 +1,16 @@
+version: '2'
+services:
+   jenkins:
+     build: jenkins
+     hostname: jenkins-1
+     ports: ["8080:8080", "50000:50000"]
+#     volumes:
+#      - ./jenkins_home:/var/jenkins_home
+
+
+# cd /Users/steve/Applications/eclipse/workspace-datapower-git/jenkins-dcm-compose/A-Jenkins-Only
+# docker-compose -f docker-compose.yml -p A build
+# docker-compose -f docker-compose.yml -p A up
+# docker-compose -f docker-compose.yml -p A down
+# docker-compose -f docker-compose.yml -p A rm
+# docker exec -it a_jenkins_1 pwd

@@ -1,0 +1,6 @@
+<project name="Ant-Test" default="Main" basedir=".">
+<target name="Main">
+<loadfile property="contents" srcFile="build.txt" />
+<echo message="${contents}" />
+</target>
+</project>
