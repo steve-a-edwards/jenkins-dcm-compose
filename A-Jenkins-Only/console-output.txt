@@ -1,0 +1,13 @@
+A-Jenkins-Only-1
+----------------
+Started by user PW: steve
+Running as SYSTEM
+Building in workspace /var/jenkins_home/workspace/A-Jenkins-Only-1
+[dcm-product] $ ant -file deploy.ant.xml -Ddcm.dir=/var/dcm-product clean
+Buildfile: /var/dcm-product/deploy.ant.xml
+
+clean:
+
+BUILD SUCCESSFUL
+Total time: 0 seconds
+Finished: SUCCESS

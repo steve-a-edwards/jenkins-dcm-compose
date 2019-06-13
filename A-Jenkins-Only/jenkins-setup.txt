@@ -1,0 +1,6 @@
+Jenkins Projects
+
+A-Jenkins-Only-1:
+- DCM product already copied to /var/dcm-product during image build
+- run Ant with file ant.deploy.xml task #clean
+- dcm.dir property defined in this project
