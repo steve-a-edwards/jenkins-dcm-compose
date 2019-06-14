@@ -1,0 +1,32 @@
+<project>
+  <actions/>
+  <description>A-Jenkins-Only-1:&#xd;
+- DCM product already copied to /var/dcm-product during image build&#xd;
+- run Ant with file ant.deploy.xml task #clean&#xd;
+- dcm.dir property defined in this project</description>
+  <keepDependencies>false</keepDependencies>
+  <properties/>
+  <scm class="hudson.scm.NullSCM"/>
+  <canRoam>true</canRoam>
+  <disabled>false</disabled>
+  <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
+  <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
+  <triggers/>
+  <concurrentBuild>false</concurrentBuild>
+  <builders>
+    <hudson.tasks.Ant plugin="ant@1.9">
+      <targets>clean</targets>
+      <buildFile>/var/dcm-product/deploy.ant.xml</buildFile>
+      <properties>dcm.dir=/var/dcm-product</properties>
+    </hudson.tasks.Ant>
+    <hudson.tasks.Shell>
+      <command>export JENKINS_CLI_JAR=$JENKINS_HOME/war/WEB-INF/jenkins-cli.jar
+java -jar $JENKINS_CLI_JAR -s &quot;http://localhost:8080&quot; -auth steve:steve get-job $JOB_NAME  &gt; ${JOB_NAME}_DEF.xml
+</command>
+    </hudson.tasks.Shell>
+  </builders>
+  <publishers/>
+  <buildWrappers>
+    <hudson.tasks.AntWrapper plugin="ant@1.9"/>
+  </buildWrappers>
+</project>

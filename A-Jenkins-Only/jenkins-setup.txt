@@ -4,3 +4,9 @@ A-Jenkins-Only-1:
 - DCM product already copied to /var/dcm-product during image build
 - run Ant with file ant.deploy.xml task #clean
 - dcm.dir property defined in this project
+
+A-Jenkins-Only-2:
+- DCM product already copied to /var/dcm-product during image build
+- run Ant with file ant.deploy.xml task #clean
+- dcm.dir property from git clone https://github.com/steve-a-edwards/jenkins-dcm-compose-properties/dcm.properties
+

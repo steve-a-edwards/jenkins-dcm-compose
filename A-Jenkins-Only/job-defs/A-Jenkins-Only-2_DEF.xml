@@ -1,0 +1,52 @@
+<?xml version='1.1' encoding='UTF-8'?>
+<project>
+  <actions/>
+  <description></description>
+  <keepDependencies>false</keepDependencies>
+  <properties/>
+  <scm class="hudson.plugins.git.GitSCM" plugin="git@3.10.0">
+    <configVersion>2</configVersion>
+    <userRemoteConfigs>
+      <hudson.plugins.git.UserRemoteConfig>
+        <url>https://github.com/steve-a-edwards/jenkins-dcm-compose-properties</url>
+        <credentialsId>dbac1e2d-bbfb-459c-b0b1-93bed733dec5</credentialsId>
+      </hudson.plugins.git.UserRemoteConfig>
+    </userRemoteConfigs>
+    <branches>
+      <hudson.plugins.git.BranchSpec>
+        <name>*/master</name>
+      </hudson.plugins.git.BranchSpec>
+    </branches>
+    <doGenerateSubmoduleConfigurations>false</doGenerateSubmoduleConfigurations>
+    <submoduleCfg class="list"/>
+    <extensions/>
+  </scm>
+  <canRoam>true</canRoam>
+  <disabled>false</disabled>
+  <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
+  <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
+  <triggers/>
+  <concurrentBuild>false</concurrentBuild>
+  <builders>
+    <hudson.tasks.Shell>
+      <command>echo &quot;*********** HAVE NOW CLONED FROM: $GIT_URL ***********&quot;
+echo &quot;--- JOB Name: $JOB_NAME&quot;
+echo &quot;--- NOW SHOULD HAVE THE FILE dcm.properties for dcm use&quot;
+# $WORKSPACE is the workspace of the JOB:
+cat $WORKSPACE/dcm.properties
+echo &quot;*********** NOW RUNNING DCM TARGET #clean ***********&quot;</command>
+    </hudson.tasks.Shell>
+    <hudson.tasks.Ant plugin="ant@1.9">
+      <targets>-propertyfile $WORKSPACE/dcm.properties clean</targets>
+      <buildFile>/var/dcm-product/deploy.ant.xml</buildFile>
+    </hudson.tasks.Ant>
+    <hudson.tasks.Shell>
+      <command>export JENKINS_CLI_JAR=$JENKINS_HOME/war/WEB-INF/jenkins-cli.jar
+java -jar $JENKINS_CLI_JAR -s &quot;http://localhost:8080&quot; -auth steve:steve get-job $JOB_NAME  &gt; ${JOB_NAME}_DEF.xml
+
+</command>
+    </hudson.tasks.Shell>
+  </builders>
+  <publishers/>
+  <buildWrappers/>
+</project>
