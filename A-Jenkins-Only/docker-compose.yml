@@ -7,10 +7,15 @@ services:
 #     volumes:
 #      - ./jenkins_home:/var/jenkins_home
 
-
 # cd /Users/steve/Applications/eclipse/workspace-datapower-git/jenkins-dcm-compose/A-Jenkins-Only
 # docker-compose -f docker-compose.yml -p A build
 # docker-compose -f docker-compose.yml -p A up
+# docker-compose -f docker-compose.yml -p A stop
+# docker-compose -f docker-compose.yml -p A start
 # docker-compose -f docker-compose.yml -p A down
 # docker-compose -f docker-compose.yml -p A rm
 # docker exec -it a_jenkins_1 pwd
+# docker container exec -i -t a_jenkins_1 /bin/bash
+# ROOT command line:
+# docker container exec --user root -i -t a_jenkins_1 /bin/bash
+#    root@jenkins-1:/# apt-get install nano

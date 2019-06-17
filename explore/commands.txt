@@ -3,6 +3,7 @@ http://localhost:8080/job/A-Jenkins-Only-1/config.xml
 
 ===
 // Run in Script Console (this is a Groovy script)
+// Script deletes builds from a specific job
 // change this variable to match the name of the job whose builds you want to delete
 def jobName = "export-jobs"
 def job = Jenkins.instance.getItem(jobName)
@@ -15,3 +16,7 @@ job.save()
 # Run the following to open terminal in a container:
 docker container exec -i -t aa_jenkins_1 /bin/bash
 # (can type "exit" when finished)
+
+# ROOT command line:
+# docker container exec --user root -i -t a_jenkins_1 /bin/bash
+#    root@jenkins-1:/# apt-get install nano

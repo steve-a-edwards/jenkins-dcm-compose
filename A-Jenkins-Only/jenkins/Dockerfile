@@ -1,4 +1,5 @@
 FROM jenkins/jenkins:lts
+COPY ./scripts /var/jenkins_scripts
 # if we want to install via apt
 USER root
 # Update and install Ant (needed)
@@ -11,8 +12,6 @@ RUN git clone https://github.com/ibm-datapower/datapower-configuration-manager/ 
 RUN wget --directory-prefix=/var/dcm-product/dist https://github.com/ibm-datapower/datapower-configuration-manager/releases/download/20/dcm.jar
 # drop back to the regular jenkins user - good practice
 USER jenkins
-
-
 
 # CANNOT PUT STUFF IN JENKINS_HOME
 # docker exec -it aa_jenkins_1 ls var/dcm-product
