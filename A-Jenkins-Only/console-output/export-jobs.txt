@@ -1,0 +1,24 @@
+Started by user PW: steve
+Running as SYSTEM
+Building in workspace /var/jenkins_home/workspace/export-jobs
+[export-jobs] $ /bin/sh -xe /tmp/jenkins1986690562528942899.sh
++ id=steve
++ pw=steve
++ output_dir=/var/jenkins_home/exports
++ mkdir -p /var/jenkins_home/exports
++ java -jar /var/jenkins_home/war/WEB-INF/jenkins-cli.jar -s http://localhost:8080 -auth steve:steve list-jobs
++ jobs=A-Jenkins-Only-1
+A-Jenkins-Only-2
+export-jobs
++ echo A-Jenkins-Only-1
+A-Jenkins-Only-1
++ java -jar /var/jenkins_home/war/WEB-INF/jenkins-cli.jar -s http://localhost:8080 -auth steve:steve get-job A-Jenkins-Only-1
++ echo A-Jenkins-Only-2
+A-Jenkins-Only-2
++ java -jar /var/jenkins_home/war/WEB-INF/jenkins-cli.jar -s http://localhost:8080 -auth steve:steve get-job A-Jenkins-Only-2
++ echo export-jobs
+export-jobs
++ java -jar /var/jenkins_home/war/WEB-INF/jenkins-cli.jar -s http://localhost:8080 -auth steve:steve get-job export-jobs
++ echo Exports located here: /var/jenkins_home/exports
+Exports located here: /var/jenkins_home/exports
+Finished: SUCCESS

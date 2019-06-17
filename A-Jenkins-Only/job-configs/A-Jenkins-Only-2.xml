@@ -1,7 +1,12 @@
 <?xml version='1.1' encoding='UTF-8'?>
 <project>
   <actions/>
-  <description></description>
+  <description>A-Jenkins-Only-2: &#xd;
+- DCM product already copied to /var/dcm-product during image build&#xd;
+- dcm.dir property defined in file dcm.properties from GitHub project&#xd;
+- run Ant with file ant.deploy.xml task #clean &#xd;
+Note the #clean tasks does not make any calls to a DataPower. &#xd;
+Look in console for succesful operation. </description>
   <keepDependencies>false</keepDependencies>
   <properties/>
   <scm class="hudson.plugins.git.GitSCM" plugin="git@3.10.0">
@@ -40,12 +45,6 @@ echo &quot;*********** NOW RUNNING DCM TARGET #clean ***********&quot;</command>
       <targets>-propertyfile $WORKSPACE/dcm.properties clean</targets>
       <buildFile>/var/dcm-product/deploy.ant.xml</buildFile>
     </hudson.tasks.Ant>
-    <hudson.tasks.Shell>
-      <command>export JENKINS_CLI_JAR=$JENKINS_HOME/war/WEB-INF/jenkins-cli.jar
-java -jar $JENKINS_CLI_JAR -s &quot;http://localhost:8080&quot; -auth steve:steve get-job $JOB_NAME  &gt; ${JOB_NAME}_DEF.xml
-
-</command>
-    </hudson.tasks.Shell>
   </builders>
   <publishers/>
   <buildWrappers/>

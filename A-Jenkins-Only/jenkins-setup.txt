@@ -10,3 +10,6 @@ A-Jenkins-Only-2:
 - run Ant with file ant.deploy.xml task #clean
 - dcm.dir property from git clone https://github.com/steve-a-edwards/jenkins-dcm-compose-properties/dcm.properties
 
+export-jobs
+- uses Jenkins CLI to output the config XML files in all of the existing Jenkins jobs
+- files go into new specific folder $JENKINS_HOME/exports

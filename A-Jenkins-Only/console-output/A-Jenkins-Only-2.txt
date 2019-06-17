@@ -1,0 +1,44 @@
+Started by user PW: steve
+Running as SYSTEM
+Building in workspace /var/jenkins_home/workspace/A-Jenkins-Only-2
+using credential dbac1e2d-bbfb-459c-b0b1-93bed733dec5
+ > git rev-parse --is-inside-work-tree # timeout=10
+Fetching changes from the remote Git repository
+ > git config remote.origin.url https://github.com/steve-a-edwards/jenkins-dcm-compose-properties # timeout=10
+Fetching upstream changes from https://github.com/steve-a-edwards/jenkins-dcm-compose-properties
+ > git --version # timeout=10
+using GIT_ASKPASS to set credentials 
+ > git fetch --tags --progress https://github.com/steve-a-edwards/jenkins-dcm-compose-properties +refs/heads/*:refs/remotes/origin/*
+ > git rev-parse refs/remotes/origin/master^{commit} # timeout=10
+ > git rev-parse refs/remotes/origin/origin/master^{commit} # timeout=10
+Checking out Revision 7ab768742bd969bd46863256e942b548b49d6496 (refs/remotes/origin/master)
+ > git config core.sparsecheckout # timeout=10
+ > git checkout -f 7ab768742bd969bd46863256e942b548b49d6496
+Commit message: "Minor update"
+First time build. Skipping changelog.
+[A-Jenkins-Only-2] $ /bin/sh -xe /tmp/jenkins4370687957786782052.sh
++ echo *********** HAVE NOW CLONED FROM: https://github.com/steve-a-edwards/jenkins-dcm-compose-properties ***********
+*********** HAVE NOW CLONED FROM: https://github.com/steve-a-edwards/jenkins-dcm-compose-properties ***********
++ echo --- JOB Name: A-Jenkins-Only-2
+--- JOB Name: A-Jenkins-Only-2
++ echo --- NOW SHOULD HAVE THE FILE dcm.properties for dcm use
+--- NOW SHOULD HAVE THE FILE dcm.properties for dcm use
++ cat /var/jenkins_home/workspace/A-Jenkins-Only-2/dcm.properties
+# Cannot use $JENKINS_HOME here, since this is not evaluated inside Ant:
+dcm.dir=/var/dcm-product
+uid=admin
+pwd=admin
+
+# Below used in B-Jenkins-DataPower project that uses docker-compose
+# ??
+host=172.17.0.3
+domain=jenkins+ echo *********** NOW RUNNING DCM TARGET #clean ***********
+*********** NOW RUNNING DCM TARGET #clean ***********
+[dcm-product] $ ant -file deploy.ant.xml -propertyfile /var/jenkins_home/workspace/A-Jenkins-Only-2/dcm.properties clean
+Buildfile: /var/dcm-product/deploy.ant.xml
+
+clean:
+
+BUILD SUCCESSFUL
+Total time: 0 seconds
+Finished: SUCCESS

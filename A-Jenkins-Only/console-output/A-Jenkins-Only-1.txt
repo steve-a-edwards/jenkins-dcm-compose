@@ -1,5 +1,3 @@
-A-Jenkins-Only-1
-----------------
 Started by user PW: steve
 Running as SYSTEM
 Building in workspace /var/jenkins_home/workspace/A-Jenkins-Only-1
