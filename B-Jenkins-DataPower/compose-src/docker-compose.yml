@@ -1,0 +1,71 @@
+version: '2'
+services:
+   jenkins:
+     build: jenkins
+     depends_on:
+      - datapower
+     hostname: jenkins-2
+     container_name: b-jenkins-2
+     ports: ["8080:8080", "50000:50000"]
+   datapower:
+     build: datapower
+     hostname: datapower-2
+     container_name: b-datapower-2
+     volumes:
+      - ./datapower/drouter/config:/drouter/config
+      - ./datapower/drouter/local:/drouter/local
+     ports: ["9090:9090", "9022:9022", "5550:5550", "5554:5554", "3000-3004:3000-3004"]
+
+###################################################################
+# cd /Users/steve/Applications/eclipse/workspace-datapower-git/jenkins-dcm-compose/B-Jenkins-DataPower/compose-src
+# docker-compose -f docker-compose.yml -p B build
+# docker-compose -f docker-compose.yml -p B up
+# docker-compose -f docker-compose.yml -p B stop
+# docker-compose -f docker-compose.yml -p B start
+# docker-compose -f docker-compose.yml -p B down
+# docker-compose -f docker-compose.yml -p B rm
+# docker exec -it b_jenkins_1 pwd
+# docker container exec -i -t b_jenkins_1 /bin/bash
+# ROOT command line:
+# docker container exec --user root -i -t b_jenkins_1 /bin/bash
+#    root@jenkins-1:/# apt-get install nano
+# docker container exec --user root -i -t b_datapower_1 sh
+#    # ls
+###################################################################
+# $ docker container exec -i -t b_jenkins_1 /bin/bash
+## root@jenkins-2:/var/jenkins_scripts# cat /etc/hosts
+## 127.0.0.1	localhost
+## ::1	localhost ip6-localhost ip6-loopback
+## fe00::0	ip6-localnet
+## ff00::0	ip6-mcastprefix
+## ff02::1	ip6-allnodes
+## ff02::2	ip6-allrouters
+## 192.168.192.3	jenkins-2
+###################################################################
+# $ ssh localhost -p 9022
+## datapower-2
+## login: admin
+## Password: *****
+## Welcome to IBM DataPower Gateway console configuration. 
+## Copyright IBM Corporation 1999-2019 
+## Version: IDG.7.6.0.13 build 307063 on Mar 24, 2019 10:54:18 PM
+## Serial number: 0000001
+## idg# show system
+##                     description: IBM DataPower Gateway
+##                   serial number: 0000001
+##                  entitlement id: 0000001
+##                      product id: software [Rev 001]
+##                             OID: 1.3.6.1.4.1.14685.1.8
+##                          uptime: 0 days 00:14:38
+##                         contact: (unknown)
+##                            name: datapower-2
+##                        location: (unknown)
+##                        services: 72
+##                     backup mode: normal
+##                    product mode: normal
+##                   login-message: 
+##                  custom-ui-file: 
+##                   audit-reserve: 40 kBytes
+##                          locale: en
+##         system-log-fixed-format: off
+###################################################################

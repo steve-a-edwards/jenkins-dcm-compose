@@ -13,8 +13,10 @@ RUN wget --directory-prefix=/var/dcm-product/dist https://github.com/ibm-datapow
 # drop back to the regular jenkins user - good practice
 USER jenkins
 
-# CANNOT PUT STUFF IN JENKINS_HOME
-# docker exec -it aa_jenkins_1 ls var/dcm-product
+# CANNOT PUT STUFF IN JENKINS_HOME:
+# docker exec -it a_jenkins_1 ls var/dcm-product
+# BUT WITH THIS YOU CAN:
+# docker container exec --user root -i -t a_jenkins_1 /bin/bash
 # Targets		clean
 # Build File	/var/dcm-product/deploy.ant.xml
 # Properties	dcm.dir=/var/dcm-product

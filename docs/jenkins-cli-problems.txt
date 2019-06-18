@@ -1,0 +1,4 @@
+Could not get jenkins CLI working with credentials:
+- list
+- create
+- import

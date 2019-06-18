@@ -1,7 +1,7 @@
 echo "This script will import Jenkins job XML config files"
 id="steve";
 pw="steve";
-files=`ls job-configs/*.xml`;
+files=`ls import-configs/jobs/*.xml`;
 echo "Processing files";
 echo $files;
 for f in $files;

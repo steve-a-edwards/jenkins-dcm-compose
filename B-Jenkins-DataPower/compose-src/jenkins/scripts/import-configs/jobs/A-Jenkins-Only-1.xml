@@ -1,0 +1,31 @@
+<?xml version='1.1' encoding='UTF-8'?>
+<project>
+  <actions/>
+  <description>A-Jenkins-Only-1:&#xd;
+- DCM product already copied to /var/dcm-product during image build&#xd;
+- run Ant with file ant.deploy.xml task #clean&#xd;
+- dcm.dir defined in this project in the Ant task properties&#xd;
+Note the #clean tasks does not make any calls to a DataPower.&#xd;
+Look in console for succesful operation.&#xd;
+</description>
+  <keepDependencies>false</keepDependencies>
+  <properties/>
+  <scm class="hudson.scm.NullSCM"/>
+  <canRoam>true</canRoam>
+  <disabled>false</disabled>
+  <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
+  <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
+  <triggers/>
+  <concurrentBuild>false</concurrentBuild>
+  <builders>
+    <hudson.tasks.Ant plugin="ant@1.9">
+      <targets>clean</targets>
+      <buildFile>/var/dcm-product/deploy.ant.xml</buildFile>
+      <properties>dcm.dir=/var/dcm-product</properties>
+    </hudson.tasks.Ant>
+  </builders>
+  <publishers/>
+  <buildWrappers>
+    <hudson.tasks.AntWrapper plugin="ant@1.9"/>
+  </buildWrappers>
+</project>

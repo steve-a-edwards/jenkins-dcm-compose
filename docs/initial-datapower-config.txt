@@ -1,0 +1,35 @@
+The following was used for prep, in temporary container.
+Code in /Users/steve/dp76-docker-temp
+
+docker run -it \
+  -v $PWD/config:/drouter/config \
+  -v $PWD/local:/drouter/local \
+  -e DATAPOWER_ACCEPT_LICENSE=true \
+  -e DATAPOWER_INTERACTIVE=true \
+  -e DATAPOWER_WORKER_THREADS=4 \
+  -p 9090:9090 \
+  -p 5550:5550 \
+  -p 5554:5554 \
+  -p 9022:9022 \
+  -p 3000-3004:3000-3004 \
+  --name datapower-760 \
+  --hostname docker-760 \
+  ibmcom/datapower:7.6.0
+
+admin/admin
+co
+web-mgmt
+ 	admin-state enabled
+	exit
+write mem
+
+ssh 9022
+
+domains:
+- app-dev
+- app-tst
+
+MPGW
+- app-mpgw
+  - app-policy
+  - app-http-fsh (3000)
