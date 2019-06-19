@@ -1,0 +1,75 @@
+WebGUI http://localhost:9090
+
+bash-3.2$ ssh localhost -p 9022
+The authenticity of host '[localhost]:9022 ([::1]:9022)' can't be established.
+RSA key fingerprint is SHA256:sVNA1fDViez9fQu3KbylzHHOwIXD3W/GXnu2MMYUA7U.
+Are you sure you want to continue connecting (yes/no)? yes
+Warning: Permanently added '[localhost]:9022' (RSA) to the list of known hosts.
+datapower-2
+Unauthorized access prohibited.
+login: admin
+Password: *****
+
+Welcome to IBM DataPower Gateway console configuration. 
+Copyright IBM Corporation 1999-2019 
+
+Version: IDG.7.6.0.13 build 307063 on Mar 24, 2019 10:54:18 PM
+Serial number: 0000001
+
+idg(config)# show ip hosts
+
+ A 192.168.192.2	eth0_ipv4_1	
+ S ::1	localhost	
+ S ff02::1	ip6-allnodes	
+ S ::1	ip6-loopback	
+ S ff00::	ip6-mcastprefix	
+ S ff02::2	ip6-allrouters	
+ S fe00::	ip6-localnet	
+ S 192.168.192.2	datapower-2	
+ S ::1	ip6-localhost
+ 
+ idg(config)# ping datapower-2
+PING datapower-2 (192.168.192.2): with 56 data bytes
+
+% Host unreachable: 'datapower-2'
+
+idg(config)# ping 192.168.192.2
+PING b-datapower-2.b_default (192.168.192.2): with 56 data bytes
+
+% Host unreachable: '192.168.192.2'
+
+idg(config)# ping 192.168.192.3
+PING b-jenkins-2.b_default (192.168.192.3): with 56 data bytes
+
+% Host unreachable: '192.168.192.3'
+
+idg# show system
+
+                    description: IBM DataPower Gateway
+                  serial number: 0000001
+                 entitlement id: 0000001
+                     product id: software [Rev 001]
+                            OID: 1.3.6.1.4.1.14685.1.8
+                         uptime: 0 days 00:45:59
+                        contact: (unknown)
+                           name: datapower-2
+                       location: (unknown)
+                       services: 72
+                    backup mode: normal
+                   product mode: normal
+                  login-message: 
+                 custom-ui-file: 
+                  audit-reserve: 40 kBytes
+                         locale: en
+        system-log-fixed-format: off
+
+idg# show domains
+
+ Domain  Needs save File capture Debug log Probe enabled Diagnostics Command Quiesce state Interface state Failsafe mode 
+ ------- ---------- ------------ --------- ------------- ----------- ------- ------------- --------------- ------------- 
+ app-dev off        off          off       off           off                               ok              none          
+ app-prd off        off          off       off           off                               ok              none          
+ app-tst off        off          off       off           off                               ok              none          
+ default off        off          off       off           off                               ok              none          
+
+ 

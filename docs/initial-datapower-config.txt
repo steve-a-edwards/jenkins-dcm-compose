@@ -1,5 +1,9 @@
 The following was used for prep, in temporary container.
-Code in /Users/steve/dp76-docker-temp
+This used only docker. The network management interfaces
+were setup, the domains, mpgw config in app-dev, the
+router local, config folders were then populated with
+the corresponding code. The docker container from below
+was then deleted.
 
 docker run -it \
   -v $PWD/config:/drouter/config \
@@ -32,4 +36,5 @@ domains:
 MPGW
 - app-mpgw
   - app-policy
+  	- skip-backside, XSL to return URI and input-size of XML message
   - app-http-fsh (3000)

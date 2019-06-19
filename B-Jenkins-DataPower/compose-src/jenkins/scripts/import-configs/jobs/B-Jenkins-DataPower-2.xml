@@ -37,7 +37,7 @@ Unzip app-dev-backup.zip to produce app-dev.zip which can be imported.&#xd;
       <properties>dcm.dir=/var/dcm-product
 uid=admin
 pwd=admin
-host=b_datapower_1
+host=datapower
 domain=app-dev
 # ABOVE IS 1st, THIS IS LIST OF FURTHER - domains=app-dev
 backup.file=/var/jenkins_home/workspace/B-Jenkins-DataPower-2/app-dev-backup.zip</properties>

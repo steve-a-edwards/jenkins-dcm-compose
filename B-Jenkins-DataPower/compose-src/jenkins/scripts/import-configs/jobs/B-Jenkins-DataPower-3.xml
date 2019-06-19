@@ -3,6 +3,7 @@
   <actions/>
   <description>B-Jenkins-DataPower-3:&#xd;
 - use DCM to import ZIP file to another domain&#xd;
+- B-Jenkins-DataPower-2 needs to be run first to produce app-dev.zip&#xd;
 </description>
   <keepDependencies>false</keepDependencies>
   <properties/>
@@ -20,7 +21,7 @@
       <properties>dcm.dir=/var/dcm-product
 uid=admin
 pwd=admin
-host=b_datapower_1
+host=datapower
 domain=app-tst
 import.file=/var/jenkins_home/workspace/B-Jenkins-DataPower-2/app-dev.zip
 import.changes.file=/var/dcm-deployment/app-deploy.xml</properties>

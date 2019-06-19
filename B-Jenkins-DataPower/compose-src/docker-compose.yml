@@ -27,7 +27,7 @@ services:
 # docker exec -it b_jenkins_1 pwd
 # docker container exec -i -t b_jenkins_1 /bin/bash
 # ROOT command line:
-# docker container exec --user root -i -t b_jenkins_1 /bin/bash
+# docker container exec --user root -i -t b-jenkins-2 /bin/bash
 #    root@jenkins-1:/# apt-get install nano
 # docker container exec --user root -i -t b_datapower_1 sh
 #    # ls

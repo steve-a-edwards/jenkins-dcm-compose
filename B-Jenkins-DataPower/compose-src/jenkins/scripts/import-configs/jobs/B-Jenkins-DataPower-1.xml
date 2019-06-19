@@ -22,7 +22,7 @@
       <properties>dcm.dir=/var/dcm-product
 uid=admin
 pwd=admin
-host=b_datapower_1</properties>
+host=datapower</properties>
     </hudson.tasks.Ant>
   </builders>
   <publishers/>
