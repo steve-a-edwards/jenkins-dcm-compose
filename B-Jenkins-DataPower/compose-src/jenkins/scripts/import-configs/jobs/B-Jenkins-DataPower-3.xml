@@ -1,0 +1,33 @@
+<?xml version='1.1' encoding='UTF-8'?>
+<project>
+  <actions/>
+  <description>B-Jenkins-DataPower-3:&#xd;
+- use DCM to import ZIP file to another domain&#xd;
+</description>
+  <keepDependencies>false</keepDependencies>
+  <properties/>
+  <scm class="hudson.scm.NullSCM"/>
+  <canRoam>true</canRoam>
+  <disabled>false</disabled>
+  <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
+  <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
+  <triggers/>
+  <concurrentBuild>false</concurrentBuild>
+  <builders>
+    <hudson.tasks.Ant plugin="ant@1.9">
+      <targets>-propertyfile /var/dcm-deployment/app-tst-deploy.properties import-from-def</targets>
+      <buildFile>/var/dcm-product/deploy.ant.xml</buildFile>
+      <properties>dcm.dir=/var/dcm-product
+uid=admin
+pwd=admin
+host=b_datapower_1
+domain=app-tst
+import.file=/var/jenkins_home/workspace/B-Jenkins-DataPower-2/app-dev.zip
+import.changes.file=/var/dcm-deployment/app-deploy.xml</properties>
+    </hudson.tasks.Ant>
+  </builders>
+  <publishers/>
+  <buildWrappers>
+    <hudson.tasks.AntWrapper plugin="ant@1.9"/>
+  </buildWrappers>
+</project>

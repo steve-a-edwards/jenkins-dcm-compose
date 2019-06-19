@@ -19,6 +19,7 @@ Archive:  app-dev-backup.zip&#xd;
     12274  2019-06-18 16:56   app-dev.zip&#xd;
 ---------                     -------&#xd;
   4558724                     9 files&#xd;
+Unzip app-dev-backup.zip to produce app-dev.zip which can be imported.&#xd;
 </description>
   <keepDependencies>false</keepDependencies>
   <properties/>
@@ -33,14 +34,18 @@ Archive:  app-dev-backup.zip&#xd;
     <hudson.tasks.Ant plugin="ant@1.9">
       <targets>backup-domains</targets>
       <buildFile>/var/dcm-product/deploy.ant.xml</buildFile>
-      <properties>
-dcm.dir=/var/dcm-product
+      <properties>dcm.dir=/var/dcm-product
 uid=admin
 pwd=admin
 host=b_datapower_1
 domain=app-dev
+# ABOVE IS 1st, THIS IS LIST OF FURTHER - domains=app-dev
 backup.file=/var/jenkins_home/workspace/B-Jenkins-DataPower-2/app-dev-backup.zip</properties>
     </hudson.tasks.Ant>
+    <hudson.tasks.Shell>
+      <command>unzip /var/jenkins_home/workspace/B-Jenkins-DataPower-2/app-dev-backup.zip
+</command>
+    </hudson.tasks.Shell>
   </builders>
   <publishers/>
   <buildWrappers>

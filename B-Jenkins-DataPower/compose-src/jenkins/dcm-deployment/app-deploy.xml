@@ -3,8 +3,6 @@
 
 	<dcm:deployment-policy>
 
-		<!-- <modify-property name="app-http-fsh" prop-name="LocalPort"
-			new-prop-value="3001" />  -->
 		<modify-property name="app-http-fsh" prop-name="LocalPort"
 			new-prop-value="${app-http-fsh.LocalPort}" />
 
